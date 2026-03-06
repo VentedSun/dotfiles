@@ -1,0 +1,96 @@
+//   _____ _____ _____ _____ _____ _____ _____ _____ _____ 
+//  |   __|  _  |   __|_   _|   __|   __|_   _|     |  |  |
+//  |   __|     |__   | | | |   __|   __| | | |   --|     |
+//  |__|  |__|__|_____| |_| |__|  |_____| |_| |_____|__|__|
+//
+
+
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        //"source": "~/.config/fastfetch/ascii/arch.txt", // search for logos: fastfetch --list-logos or --print-logos
+        "type": "kitty-icat",
+        //"source": "~/.config/fastfetch/fastfetchOro.gif",
+        //"source": "~/.config/fastfetch/fastfetchDisc.gif",
+        //"source": "~/.config/fastfetch/fastfetchDisc.png",
+        //source": "none",
+        "padding": {
+	        "top": 1,
+            "left":1
+	    },
+        //"width":50,
+        //"color": {             // Override logo colors
+        //    "1": "cyan",
+        //    "2": "white"
+        //}
+},
+    "display": {
+        "separator": "  "
+    },
+    "modules": [
+	"break",
+        {
+            "key": "╭───────╮",
+            "type": "custom",
+            "keyColor": "white"
+        },
+        //{
+        //    "type": "title",
+        //    "key": "{#36}{#}",
+        //    "format": "{6}{7}{8}"
+        //},
+        {
+            "type": "os",
+            "key": "{#}│ {#36} OS {#} │",
+            "format": "{3}"
+        },
+        {
+            "type": "uptime",
+            "key": "{#}│ {#36} UPT{#} │",
+            "format": "{1}d {2}h {3}m"
+        },
+        {
+            "type": "packages",
+            "format": "{}",
+            "key": "{#}│ {#36} PKG{#} │"
+        },
+        {
+            "type": "shell",
+            "format": "{1} ({4})",
+            "key": "{#}│ {#36} TRM{#} │",
+        },
+        {
+            "type": "cpu",
+            "format": "{1} ({4})",
+            "key": "{#}│ {#36} CPU{#} │"
+        },
+        {
+            "type": "memory",
+            "format": "{1} / {2} ({3})",
+            "key": "{#}│ {#36} MEM{#} │"
+        },
+        {
+            "type": "disk",
+            "key": "{#}│ {#36} DSK{#} │",
+            "format": "{1} / {2} ({3})",
+        },
+        {
+            "key": "├───────┤",
+            "type": "custom",
+            "keyColor": "white"
+        },
+        {
+            "type": "colors",
+            "key": "{#}│ {#36} CLR{#} │",
+            //"keyWidth": 12,
+            "symbol": "circle",
+        },
+        {
+            "key": "╰───────╯",
+            "format": "",
+            "type": "custom",
+            "keyColor": "white"
+        },
+        "break"
+    ]
+}

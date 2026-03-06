@@ -1,0 +1,11 @@
+[Unit]
+Description=Heroes of the Storm Replay Auto-Uploader
+After=network.target
+
+[Service]
+ExecStart=/home/sun/.scripts/hots_monitor.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

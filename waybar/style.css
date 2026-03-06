@@ -1,0 +1,190 @@
+/*@import "theme.css";*/
+@import "../colors.css";
+/*@define-color accent #aaffff;*/
+@define-color accent @primary;
+@define-color border alpha(@primary, 0.2);
+
+/* Main Window */
+window#waybar {
+    background: alpha(@background, 1);
+}
+*:not(tooltip) {
+    border-radius: 0px;
+    font: bold 1rem "SF Pro", "JetbrainsMono Nerd Font Propo";
+    font-weight: 500;
+    box-shadow: none;
+    text-shadow: none;
+    min-height: 26px;
+    transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+*:hover {
+    color: @accent;
+    border-radius: 8px;
+}
+#left,
+#right,
+#center {
+    margin: 6px;
+}
+#left:hover,
+#right:hover,
+#center:hover {
+    box-shadow: inset 0px 0px 10px 2px @border;
+}
+
+/* Tooltips */
+tooltip {
+    background-color: alpha(@surface, 0.2);
+    border: none;
+    border-radius: 4px;
+    padding: 0px;
+}
+tooltip label {
+	background-color: alpha(@background, 0);
+	color: @main-fg;
+	padding: 0px 5px;
+	border: none;
+}
+
+/* Workspace Buttons */
+#workspaces button:hover,
+#taskbar button:hover,
+#custom-home:hover {
+    padding: 0px 4px;
+    border-radius: 10px;
+    animation: ws_hover 20s ease-in-out 1;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* Module Styling */
+/* Arrow Modules */
+#window,
+#cpu,
+#memory,
+#disk,
+#mpris,
+#custom-updates,
+#backlight,
+#custom-home,
+#custom-notifications,
+#tray,
+#custom-arrow-right,
+#custom-arrow-left, 
+/* Everything else */
+#bluetooth,
+#custom-cliphist,
+#clock,
+#mpris
+#language,
+#taskbar,
+#network,
+#bluetooth,
+#pulseaudio,
+#battery,
+#power-profiles-daemon,
+#idle_inhibitor,
+#workspaces button {
+    padding: 0px 8px;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    color: lighter(lighter(@cursor));
+}
+#workspaces button {
+    padding: 0px 0px;
+}
+#idle_inhibitor {padding-right: 0px; font-size: 14px;}
+
+/* Group Styling */
+#cpu,
+#memory,
+#disk,
+#power,
+#time,
+#mpris,
+#audio,
+#connection,
+#backlight,
+#custom-home,
+#custom-notifications,
+#workspaces,
+#tray {
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    border-radius: 10px;
+}
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#power:hover,
+#time:hover,
+#mpris:hover,
+#audio:hover,
+#connection:hover,
+#backlight:hover,
+#custom-home:hover,
+#custom-notifications:hover,
+#workspaces button:hover,
+#tray:hover,
+#tray > .active:hover {
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    background: alpha(@primary, 0.1);
+    /*box-shadow: inset 0px 0px 6px 2px @border;*/
+}
+
+/* Accents */
+#workspaces,
+#workspaces button.active,
+#custom-home {
+    color: @accent;
+}
+
+/* Islands */
+/*#cpu,
+#memory,
+#disk,
+#cc,
+#workspaces,
+#window,
+#mpris,
+#time,
+#custom-home {
+    background: alpha(@surface, 0.5);
+    padding: 5px 10px;
+    margin: 6px 4px;
+    border-radius: 12px;
+    border: 2px solid alpha(@secondary, 0.2);
+}
+#custom-home {
+    padding: 0px 16px;
+}
+window#waybar {
+    background:none;
+}*/
+
+/* Workspace Boxes */
+/*#workspaces button.active{
+    background-color: @accent;
+    border-radius: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    color: alpha(@accent, 0);
+}
+#workspaces button {
+    background-color : alpha(@accent, 0.4);
+    border-radius: 8px;
+    margin: 3px;
+    padding: 0px;
+    color: alpha(@accent, 0);
+}
+*/
+#workspaces button {
+    background-color: alpha(@accent, 0.4);
+    border-radius: 8px;
+    margin: 3px;
+    padding: 0px 8px; /* Added some horizontal padding for the numbers */
+    color: @main-fg;  /* Change this from alpha(@accent, 0) to a visible color */
+}
+
+#workspaces button.active {
+    background-color: @accent;
+    color: @background; /* Contrast color for the active number */
+    border-radius: 8px;
+}

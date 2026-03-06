@@ -1,0 +1,184 @@
+{
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 25,
+    "separate-outputs": false,
+    "icon": false,
+    "rewrite": {
+      "(.*) — Mozilla Firefox": "󰈹 Firefox",
+      "Mozilla Firefox": "󰈹 Firefox",
+      "Discord": " Vesktop",
+      "Spotify Premium": " Spotify",
+      "^.*(Code - OSS)$": "󰨞 VSCode",
+      "^.*v( .*|$)": " Neovim",
+      "^.*~$": "󰄛 Kitty",
+      "(.*) - Obsidian v(.*)": " Obsidian",
+      "": " Empty"      
+    }
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "all-outputs": false,
+    "format-icons": {
+      //"1": "1",
+      //"2": "2",
+      //"3": "3",
+      //"4": "4",
+      "5": "󰓓",
+      "11": "",
+      "12": "",
+      //"13": "3",
+      //"14": "4",
+      //"15": "5",
+      "urgent": "",
+      "focused": "",
+      "default": ""
+    },
+    "persistent-workspaces": {
+      "DP-1": [1, 2, 3, 4, 5],
+      "DP-2": [11, 12, 13, 14, 15]
+    }
+  },
+  
+  "group/info": {
+    "orientation": "inherit",
+    "drawer": { "transition-duration": 300, "transition-left-to-right": false },
+    "modules": ["custom/arrow-right", "cpu", "memory", "disk"]
+  },
+    
+  "custom/arrow-right": { "format": "", "tooltip": false },
+  "cpu": { "format": "󰘚 {usage}󱉸" },
+  "memory": { "format": " {:2}󱉸" },
+  "disk": { "interval": 600, "format": "󰆼 {percentage_used}󱉸", "path": "/" },
+
+  "group/cc": {
+    "orientation": "inherit",
+    "modules": ["group/connection", "group/audio", "group/power", "custom/notifications"]
+  },
+
+  "group/connection": {
+    "orientation": "inherit",
+    "drawer": { "transition-duration": 300, "transition-left-to-right": false },
+    "modules": ["network", "group/bt", "network#speed" ]
+  },
+
+  "network": {
+    "format": "{icon}",
+    "format-icons": { "wifi": ["󰤨"], "ethernet": ["󰈀"], "disconnected": [""] },
+    "format-wifi": "",
+    "format-ethernet": "󰈀",
+    "format-disconnected": ""
+  },
+
+  "network#speed": {
+    "format": " {bandwidthDownBits}  {bandwidthUpBits}",
+    "interval": 3
+  },
+
+  "group/bt": {
+    "orientation": "inherit",
+    "drawer": { "transition-duration": 300, "transition-left-to-right": true },
+    "modules": ["bluetooth", "bluetooth#status"]
+  },
+
+  "bluetooth": {
+    "format-on": "󰂯",
+    "format-off": "󰂲",
+    "format-connected": "",
+    "on-click": "overskride"
+  },
+
+  "bluetooth#status": {
+    "format-connected": "<b>{num_connections}</b>",
+    "format-connected-battery": "<small><b>{device_battery_percentage}%</b></small>"
+  },
+
+  "group/audio": {
+    "orientation": "inherit",
+    "drawer": { "transition-duration": 300, "transition-left-to-right": false },
+    "modules": ["pulseaudio", "pulseaudio#mic"]
+  },
+
+  "pulseaudio": {
+      "format": "{icon}",
+      "format-muted": "",
+      "on-click": "pavucontrol -t 3",
+      "format-icons": { "default": ["","", "", ""] }
+  },
+
+  "pulseaudio#mic": {
+      "format": "{format_source}",
+      "format-source": "󰍰",
+      "format-source-muted": "󰍱",
+      "on-click": "pavucontrol -t 4"
+  },
+
+  "group/utils": {
+    "orientation": "inherit",
+    "drawer": { "transition-duration": 300, "transition-left-to-right": true },
+    "modules": ["custom/arrow-left", "tray", "backlight"]
+  },
+    
+  "custom/arrow-left": { "format": "", "tooltip": false },
+  "tray": { "spacing": 5, "icon-size": 20 },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
+  },
+
+  "custom/notifications": {
+    "format": "{icon}",
+    "format-icons": { "notification": "󱅫", "none": "󰂚", "dnd-notification": "󰂛" },
+    "return-type": "json",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw"
+  },
+
+  "group/power": {
+    "orientation": "inherit",
+    "drawer": { "transition-duration": 300, "transition-left-to-right": false },
+    "modules": ["battery", "power-profiles-daemon"]
+  },
+
+  "battery": {
+      "states": { "warning": 30, "critical": 20 },
+      "format": "{icon}",
+      "format-icons": ["", "", "", "", ""]
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "format-icons": { "default": "", "performance": "", "balanced": "", "power-saver": "" }
+  },
+
+  "custom/home": {
+      "format": "{}",
+      "on-click": "wofi",
+      "on-click-right": "poweroff"
+  },
+
+  "group/time": {
+      "orientation": "inherit",
+      "modules": ["idle_inhibitor", "clock"]
+  },
+
+  "clock": {
+      "format": "{:%R    %d·%m·%y}",
+      "tooltip-format": "<tt>{calendar}</tt>"
+  },
+
+  "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": { "activated": "", "deactivated": "" }
+  },
+
+  "mpris": {
+	"format": "{player_icon} {artist} - {title}",
+	"player-icons": { "default": "", "mpv": "🎵" },
+	"status-icons": { "paused": "" }
+  }
+}

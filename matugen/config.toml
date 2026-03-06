@@ -1,0 +1,18 @@
+[config]
+
+[templates.hyprland]
+input_path = '~/.config/matugen/templates/hyprland-colors.conf'
+output_path = '~/.config/hypr/source/colors.conf'
+post_hook = 'hyprctl reload'
+
+[templates.starship]
+input_path = '~/.config/matugen/templates/starship-colors.toml'
+output_path = '~/.config/starship.toml'
+
+[templates.colors]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/colors.css'
+
+[templates.quickshell]
+input_path = '~/.config/matugen/templates/quickshell-colors.qml'
+output_path = '~/.config/quickshell/bar/data/Colors.qml'

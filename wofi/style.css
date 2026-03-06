@@ -1,0 +1,104 @@
+@import '/home/sun/.config/colors.css';
+@define-color border alpha(@primary, 0.3);
+
+window {
+    background:none;
+    border: 5px solid #000000;
+    border-radius: 1.2rem;
+    background: alpha(@background, 0.5);
+    border: none;
+    border: 3px solid alpha(@outline, 0.3);
+    box-shadow: inset 0px 0px 8px 2px alpha(@border, 0.5);
+    transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+#input {
+    margin: 12px;
+    margin-bottom: -3px;
+    padding: 6px 12px;
+    color: #fff;
+    font-weight: bold;
+    background: alpha(@background, 0.5);
+   	outline: none;
+    border: 0px solid @surface_bright;
+    border-radius: 0.8rem;
+    box-shadow: 0px 0px 4px 2px alpha(@surface, 0);
+    transition: all 0.1s cubic-bezier(0.4,0,0.2,1);
+}
+
+#input:focus {
+    margin: 30px;
+    margin-bottom: 4px;
+    padding: 5px 10px;
+    outline: none;
+    background: alpha(@surface, 0.7);
+    border: 3px solid @border;
+    border-radius: 0.8rem;
+    box-shadow: 0px 0px 4px 2px alpha(@on_primary, 0.7);
+    transition: all 0.1s cubic-bezier(0.4,0,0.2,1);
+}
+
+#inner-box {
+    margin: 30px;
+    border: 0px;
+    border-radius: 12px;
+    font-weight: bold;
+    background: none;
+    border-radius: 12px;
+}
+
+#outer-box {
+    margin: 0px;
+    border: none;
+    border-radius: 12px;
+    background: none;
+}
+
+#scroll {
+    background: transparent;
+    border-top-width: 0px;
+    margin-top: -5px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+#img {
+
+}
+
+#text {
+    color: @secondary;
+    margin: 5px 0px;
+    padding-left: 10px;
+    border: none;
+}
+
+#text:selected {
+    color: lighter(@tertiary);
+    margin: 10px 0px;
+    padding-left:10px;
+    border: none;
+    transition: all 0.2s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#entry {
+    margin: 0px;
+    padding: 4px;
+    padding-left: 8px;
+    border: 0px solid @border;
+    border-radius: 1rem;
+    background: none;
+    transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+#entry:selected {
+    border-radius: 1rem;
+    background: alpha(@primary,0.12);
+    border: 0px solid @border;
+    outline: none;
+    box-shadow: 0px 0px 6px 2px alpha(@border, 0.8);
+    transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+    border-left: 4px solid @border; 
+    margin-top:2px;
+    margin-bottom:2px;
+}
