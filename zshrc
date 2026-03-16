@@ -13,6 +13,8 @@ alias i='sudo pacman -S' #install
 alias u='sudo pacman -Syu' #update
 alias update='sudo pacman -Syu' #update
 alias updateyay='yay -Syu' #yay update
+alias updatehyp='hyprpm update'
+alias updateflat='flatpak update'
 alias uninstall='sudo pacman -Rs' #uninstall a program
 alias r='sudo pacman -Rs' #uninstall a program
 alias clean='sudo pacman -R $(pacman -Qtdq)' #remove orphan packages
@@ -28,6 +30,7 @@ alias vsServer="/home/sun/.local/share/vintagestory/VintagestoryServer" #launch 
 alias sticks="sudo ~/.scripts/toggle-virpil.sh" #turns the virpil sticks into a controller
 alias hotsupload="~/heroesprofile-uploader/bin/heroes-profile-replay-uploader --accounts-directory '~/Games/battlenet/drive_c/users/steamuser/Documents/Heroes of the Storm/Accounts/'" #uploads hots replays
 alias cat="bat -p"
+alias cs="cd ~/.config/quickshell/chaos-shell"
 #alias bathelp='bat --plain --language=help'
 #help() {
 #    "$@" --help 2>&1 | bathelp
@@ -45,6 +48,30 @@ bindkey "^[[6~" end-of-buffer-or-history
 
 source <(fzf --zsh) # allow for fzf history widget
 bindkey '^R' fzf-history-widget
+
+update_manager() {
+    local cmds=("update" "updateyay" "updatehyp" "updateflat" "clean")
+
+    for cmd in "${cmds[@]}"; do
+        # -p prints the prompt string
+        # -r prevents backslash escaping
+        # -k 1 reads exactly one character
+        echo -n "Run '$cmd'? [y/N]: "
+        read -r -k 1 response
+        echo "" # Move to a new line after the keypress
+
+        if [[ "$response" =~ ^[Yy]$ ]]; then
+            echo "--- Executing: $cmd ---"
+            # eval forces the shell to look up aliases, functions, or binaries
+            eval "$cmd"
+        else
+            echo "Skipping: $cmd"
+        fi
+        echo "--------------------------"
+    done
+
+    echo "Sequence complete."
+}
 
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 # -------------------------------------------------------------------
